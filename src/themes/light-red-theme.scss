@@ -1,0 +1,106 @@
+$RedUi-primary-palette: (
+    50 : #f1e0e0,
+    100 : #ddb3b3,
+    200 : #c68080,
+    300 : #af4d4d,
+    400 : #9e2626,
+    500 : #8d0000,
+    600 : #850000,
+    700 : #7a0000,
+    800 : #700000,
+    900 : #5d0000,
+    A100 : #ff8e8e,
+    A200 : #ff5b5b,
+    A400 : #ff2828,
+    A700 : #ff0e0e,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+$RedUi-accent-palette:  (
+    50 : #f8e0e0,
+    100 : #efb3b3,
+    200 : #e48080,
+    300 : #d94d4d,
+    400 : #d02626,
+    500 : #c80000,
+    600 : #c20000,
+    700 : #bb0000,
+    800 : #b40000,
+    900 : #a70000,
+    A100 : #ffd1d1,
+    A200 : #ff9e9e,
+    A400 : #ff6b6b,
+    A700 : #ff5252,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+
+
+$RedUi-warn-palette: (
+    50 : #fff0e0,
+    100 : #ffd8b3,
+    200 : #ffbf80,
+    300 : #ffa54d,
+    400 : #ff9126,
+    500 : #ff7e00,
+    600 : #ff7600,
+    700 : #ff6b00,
+    800 : #ff6100,
+    900 : #ff4e00,
+    A100 : #ffffff,
+    A200 : #fff5f2,
+    A400 : #ffcfbf,
+    A700 : #ffbba6,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+
+$primary: mat-palette($RedUi-primary-palette);
+$accent: mat-palette($RedUi-accent-palette);
+$warn: mat-palette($RedUi-warn-palette);
+$lightRedTheme: mat-light-theme($primary, $accent, $warn);
