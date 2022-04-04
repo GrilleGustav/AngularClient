@@ -1,0 +1,106 @@
+$LightUi-primary-palette: (
+    50 : #f4e0e0,
+    100 : #e3b3b3,
+    200 : #d18080,
+    300 : #bf4d4d,
+    400 : #b12626,
+    500 : #a30000,
+    600 : #9b0000,
+    700 : #910000,
+    800 : #880000,
+    900 : #770000,
+    A100 : #ffa5a5,
+    A200 : #ff7272,
+    A400 : #ff3f3f,
+    A700 : #ff2525,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+$LightUi-accent-palette:  (
+    50 : #e0f4f4,
+    100 : #b3e3e3,
+    200 : #80d1d1,
+    300 : #4dbfbf,
+    400 : #26b1b1,
+    500 : #00a3a3,
+    600 : #009b9b,
+    700 : #009191,
+    800 : #008888,
+    900 : #007777,
+    A100 : #a5ffff,
+    A200 : #72ffff,
+    A400 : #3fffff,
+    A700 : #25ffff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+
+
+$LightUi-warn-palette: (
+    50 : #f4eae0,
+    100 : #e3cbb3,
+    200 : #d1a880,
+    300 : #bf854d,
+    400 : #b16b26,
+    500 : #a35100,
+    600 : #9b4a00,
+    700 : #914000,
+    800 : #883700,
+    900 : #772700,
+    A100 : #ffbba5,
+    A200 : #ff9472,
+    A400 : #ff6d3f,
+    A700 : #ff5a25,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+
+$primary: mat-palette($DarkUi-primary-palette);
+$accent: mat-palette($DarkUi-accent-palette);
+$warn: mat-palette($DarkUi-warn-palette);
+$lightTheme: mat-light-theme($primary, $accent, $warn);

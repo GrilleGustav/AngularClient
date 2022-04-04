@@ -1,0 +1,11 @@
+<mat-toolbar class="mat-elevation-z4" color="primary">
+    <span>ClientApp&nbsp;</span>
+    <span class="spacer"></span>
+    <button mat-button [matMenuTriggerFor]="menu"><mat-icon>palette</mat-icon></button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="toggleDarkTheme('dark-theme')">Dark</button>
+        <button mat-menu-item (click)="toggleDarkTheme('light-theme')">Light</button>
+        <button mat-menu-item (click)="toggleDarkTheme('light-red-theme')">Light-Red</button>
+        <button mat-menu-item (click)="toggleDarkTheme('dark-red-theme')">Dark-Red</button>
+    </mat-menu>
+</mat-toolbar>
