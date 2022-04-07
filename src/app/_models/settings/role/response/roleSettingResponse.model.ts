@@ -4,7 +4,7 @@ import { RoleViewModel } from "../roleView.model";
 /**
  * Role settings response.
  */
-export interface RoleSettingsResponse extends ErrorResponse {
+export interface RoleSettingResponseModel extends ErrorResponse {
     /**
      * Role.
      */

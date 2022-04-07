@@ -4,7 +4,7 @@ import { ApplicationClaimViewModel } from "../applicationClaimView.model";
 /**
  * Application claims response.
  */
-export interface ApplicationClaimsResponseModel extends ErrorResponse {
+export interface ApplicationClaimSettingsResponseModel extends ErrorResponse {
     /**
      * Application claims.
      */

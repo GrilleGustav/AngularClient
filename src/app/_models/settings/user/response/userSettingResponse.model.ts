@@ -1,5 +1,5 @@
 import { ErrorResponse } from "src/app/_models/user/errorResponse.model";
-import { UserViewModel } from "../UserView.model";
+import { UserViewModel } from "../userView.model";
 
 /**
  * User response.

@@ -4,7 +4,7 @@ import { EmailServerViewModel } from "../emailServerView.model";
 /**
  * Emial server settings response.
  */
-export interface EmailServerSettingsResponse extends ErrorResponse  {
+export interface EmailServerSettingsResponseModel extends ErrorResponse  {
     /**
      * Email servers.
      */

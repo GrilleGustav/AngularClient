@@ -3,7 +3,7 @@ import { ErrorResponse } from "../errorResponse.model";
 /**
  * Token response.
  */
-export interface TokenResponse extends ErrorResponse{
+export interface TokenResponseModel extends ErrorResponse{
     /**
      * Access token.
      */

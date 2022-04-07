@@ -1,7 +1,7 @@
 /**
  * Request data for password reset.
  */
- export interface ResetPassword {
+ export interface ResetPasswordModel {
     /**
      * New Password.
      */

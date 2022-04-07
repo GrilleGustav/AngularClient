@@ -1,7 +1,7 @@
 /**
  * Email message.
  */
- export class EmailMessageViewModel {
+ export interface EmailMessageViewModel {
     /**
      * Date the email was sent.
      */

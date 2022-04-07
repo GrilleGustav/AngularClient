@@ -1,7 +1,7 @@
 /**
  * Request data to forgotten password.
  */
- export interface ForgotPassword {
+ export interface ForgotPasswordModel {
     /**
      * User emial.
      */

@@ -3,7 +3,7 @@ import { ErrorResponse } from "../errorResponse.model";
 /**
  * Email exist response.
  */
-export interface EmailExistResponse extends ErrorResponse {
+export interface EmailExistResponseModel extends ErrorResponse {
     /**
      * Flag indicating if user with email already exist.
      */

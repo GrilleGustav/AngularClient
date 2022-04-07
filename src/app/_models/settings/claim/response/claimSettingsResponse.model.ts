@@ -4,7 +4,7 @@ import { ClaimViewModel } from "../claimView.model";
 /**
  * Claims settings response.
  */
-export interface ClaimsSettingsResponse extends ErrorResponse {
+export interface ClaimSettingsResponseModel extends ErrorResponse {
     /**
      * CLaims.
      */

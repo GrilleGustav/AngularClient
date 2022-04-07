@@ -1,7 +1,7 @@
 /**
  * User authentication response.
  */
- export interface UserAuthenticationResponse {
+ export interface UserAuthenticationResponseModel {
     /**
      * Flag indicating if authentication is successfully completet.
      */

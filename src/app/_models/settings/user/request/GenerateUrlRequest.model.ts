@@ -1,7 +1,7 @@
 /**
  * Token url request.
  */
- export interface GenerateUrlRequestmodel {
+ export interface GenerateUrlRequestModel {
     /**
      * User id.
      */

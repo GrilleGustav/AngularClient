@@ -1,7 +1,7 @@
 /**
  * Two factor request.
  */
- export interface TwoFactor {
+ export interface TwoFactorModel {
     /**
      * User email.
      */

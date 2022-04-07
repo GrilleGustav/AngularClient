@@ -1,7 +1,7 @@
 /**
  *  User authentication request.
  */
- export interface UserAuthenticationRequest {
+ export interface UserAuthenticationRequestModel {
     /**
      * User email.
      */

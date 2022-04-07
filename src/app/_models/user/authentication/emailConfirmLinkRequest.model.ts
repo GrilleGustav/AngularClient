@@ -1,7 +1,7 @@
 /**
  * Email confirm link request.
  */
- export interface EmialConfirmLinkRequest {
+ export interface EmialConfirmLinkRequestModel {
     /**
      * User email.
      */

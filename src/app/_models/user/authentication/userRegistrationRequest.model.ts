@@ -4,7 +4,7 @@ import { Language } from "src/app/_enums/language";
 /**
  * User registration request.
  */
-export interface UserRegistrationRequest {
+export interface UserRegistrationRequestModel {
     /**
      * Firstname.
      */
