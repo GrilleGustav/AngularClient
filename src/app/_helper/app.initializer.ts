@@ -5,10 +5,11 @@ import { AuthenticationService } from "../_services/authentication.service";
  * @param authenticationService Instance to authentification service.
  * @returns nothing or token response with access and refresh token.
  */
-export function appinitializer(authenticationService: AuthenticationService) {
-    return () => new Promise(resolve => {
-        authenticationService.refreshToken()
-            .subscribe()
-            .add(resolve);
-    });
+export function appinitializer(authenticationService: AuthenticationService): () => Promise<any> {
+    return (): Promise<any> => {
+        return new Promise((resolve, reject) => {
+            authenticationService.refreshToken()
+                .then(response => resolve(response));
+        });
+    };
 }

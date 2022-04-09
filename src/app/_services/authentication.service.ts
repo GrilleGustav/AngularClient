@@ -2,7 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { lastValueFrom, of, Subject } from 'rxjs';
+import { lastValueFrom, map, Observable, of, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { CustomEncoder } from '../_helper/custom-encoder';
 import { RefreshTokenRequestModel } from '../_models/settings/user/request/refreshTokenRequest.model';
@@ -25,7 +25,7 @@ export class AuthenticationService {
   private _authChangeSub = new Subject<boolean>();
   private refreshtokenTimeout: any;
   public authChanged = this._authChangeSub.asObservable();
-  
+
   /**
  * Service for providing user authentication.
  * @param _http Performs HTTP requests. This service is available as an injectable class, with methods to perform HTTP requests.
@@ -34,13 +34,13 @@ export class AuthenticationService {
  */
   constructor(private _http: HttpClient, private _jwtHelper: JwtHelperService, private _router: Router) { }
 
-   /**
-     * Register application user.
-     * @param body User registration request data.
-     * @returns Response containing flag indicating user was registered.
-     */
-    registerUser(body: UserRegistrationRequestModel): Promise<ErrorResponse> {
-      return lastValueFrom(this._http.post<ErrorResponse>(`${environment.apiUrl}/Accounts/RegisterUser`, body));
+  /**
+    * Register application user.
+    * @param body User registration request data.
+    * @returns Response containing flag indicating user was registered.
+    */
+  registerUser(body: UserRegistrationRequestModel): Promise<ErrorResponse> {
+    return lastValueFrom(this._http.post<ErrorResponse>(`${environment.apiUrl}/Accounts/RegisterUser`, body));
   }
 
   /**
@@ -51,27 +51,27 @@ export class AuthenticationService {
    * If authentication fails containing some backend errors.
    */
   loginUser(body: UserAuthenticationRequestModel): Promise<UserAuthenticationResponseModel> {
-      return lastValueFrom(this._http.post<UserAuthenticationResponseModel>(`${environment.apiUrl}/Accounts/Login`, body, { withCredentials: true }));
+    return lastValueFrom(this._http.post<UserAuthenticationResponseModel>(`${environment.apiUrl}/Accounts/Login`, body, { withCredentials: true }));
   }
   public sendAuthStateChangeNotification(isAuthenticated: boolean) {
-      this._authChangeSub.next(isAuthenticated);
+    this._authChangeSub.next(isAuthenticated);
   }
 
   /**
    * Logout application user.
    */
   public logout() {
-      const refreshToken = localStorage.getItem("refreshToken");
-      if (refreshToken != null) {
-          let request = {} as RevokeTokenRequestModel;
-          request.token = refreshToken;
-          this._http.post<any>(`${environment.apiUrl}/User/RevokeToken`, request, { withCredentials: true }).subscribe();
-      }
+    const refreshToken = localStorage.getItem("refreshToken");
+    if (refreshToken != null) {
+      let request = {} as RevokeTokenRequestModel;
+      request.token = refreshToken;
+      this._http.post<any>(`${environment.apiUrl}/User/RevokeToken`, request, { withCredentials: true }).subscribe();
+    }
 
-      localStorage.removeItem("token");
-      localStorage.removeItem("refreshToken");
-      this.sendAuthStateChangeNotification(false);
-      this.stopRefreshTokenTimer();
+    localStorage.removeItem("token");
+    localStorage.removeItem("refreshToken");
+    this.sendAuthStateChangeNotification(false);
+    this.stopRefreshTokenTimer();
   }
 
   /**
@@ -80,7 +80,7 @@ export class AuthenticationService {
    * @returns 
    */
   public forgotPassword(body: ForgotPasswordModel): Promise<ErrorResponse> {
-      return lastValueFrom(this._http.post<ErrorResponse>(`${environment.apiUrl}/Accounts/ForgotPassword`, body));
+    return lastValueFrom(this._http.post<ErrorResponse>(`${environment.apiUrl}/Accounts/ForgotPassword`, body));
   }
 
   /**
@@ -89,7 +89,7 @@ export class AuthenticationService {
    * @returns 
    */
   public resetPassword(body: ResetPasswordModel): Promise<ErrorResponse> {
-      return lastValueFrom(this._http.post<ErrorResponse>(`${environment.apiUrl}/Accounts/ResetPassword`, body));
+    return lastValueFrom(this._http.post<ErrorResponse>(`${environment.apiUrl}/Accounts/ResetPassword`, body));
   }
 
   /**
@@ -99,11 +99,11 @@ export class AuthenticationService {
    * @returns Response containing flag indicating user email was successfully confirm or some backend errors.
    */
   public confirmEmail(token: string, email: string): Promise<ErrorResponse> {
-      let params = new HttpParams({ encoder: new CustomEncoder() });
-      params = params.append('token', token);
-      params = params.append('email', email);
+    let params = new HttpParams({ encoder: new CustomEncoder() });
+    params = params.append('token', token);
+    params = params.append('email', email);
 
-      return lastValueFrom(this._http.get<ErrorResponse>(`${environment.apiUrl}/Accounts/EmailConfirmation`, { params: params }));
+    return lastValueFrom(this._http.get<ErrorResponse>(`${environment.apiUrl}/Accounts/EmailConfirmation`, { params: params }));
   }
 
   /**
@@ -112,7 +112,7 @@ export class AuthenticationService {
    * @returns Response containing flag indicating cofimation email successfully sends.
    */
   public resendConfirmEmail(data: EmialConfirmLinkRequestModel): Promise<ErrorResponse> {
-      return lastValueFrom(this._http.post<ErrorResponse>(`${environment.apiUrl}/Accounts/ResendEmailConfirmLink`, data));
+    return lastValueFrom(this._http.post<ErrorResponse>(`${environment.apiUrl}/Accounts/ResendEmailConfirmLink`, data));
   }
 
   /**
@@ -121,7 +121,7 @@ export class AuthenticationService {
    * @returns 
    */
   public twoStepLogin(body: TwoFactorModel): Promise<UserAuthenticationResponseModel> {
-      return lastValueFrom(this._http.post<UserAuthenticationResponseModel>(`${environment.apiUrl}/Accounts/TwoStepVerification`, body));
+    return lastValueFrom(this._http.post<UserAuthenticationResponseModel>(`${environment.apiUrl}/Accounts/TwoStepVerification`, body));
   }
 
   /**
@@ -129,13 +129,13 @@ export class AuthenticationService {
    * @returns User roles or nothing.
    */
   public getRolesfromUser(): any {
-      const token = localStorage.getItem('token');
-      if (token != null) {
-          const decodedToken = this._jwtHelper.decodeToken(token);
-          const role = decodedToken['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'];
-          return role;
-      }
-      return;
+    const token = localStorage.getItem('token');
+    if (token != null) {
+      const decodedToken = this._jwtHelper.decodeToken(token);
+      const role = decodedToken['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'];
+      return role;
+    }
+    return;
   }
 
   /**
@@ -143,13 +143,13 @@ export class AuthenticationService {
    * @returns True if user login is correct otherwise false.
    */
   public isUserAuthenticated(): boolean {
-      const token = localStorage.getItem('token');
-      if (token != 'undefined' && token != null) {
-          if (token && !this._jwtHelper.isTokenExpired(token)) {
-              return true;
-          }
+    const token = localStorage.getItem('token');
+    if (token != 'undefined' && token != null) {
+      if (token && !this._jwtHelper.isTokenExpired(token)) {
+        return true;
       }
-      return false;
+    }
+    return false;
   }
 
   /**
@@ -157,13 +157,13 @@ export class AuthenticationService {
    * @returns True if user has the role "Administrator" otherwise false.
    */
   public isUserAdmin(): boolean {
-      const token = localStorage.getItem('token');
-      if (token != null) {
-          const decodedToken = this._jwtHelper.decodeToken(token);
-          const roles = decodedToken['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'];
-          return roles.some(role => role === 'Administrator');
-      }
-      return false;
+    const token = localStorage.getItem('token');
+    if (token != null) {
+      const decodedToken = this._jwtHelper.decodeToken(token);
+      const roles = decodedToken['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'];
+      return roles.some((role: string) => role === 'Administrator');
+    }
+    return false;
   }
 
   /**
@@ -171,60 +171,86 @@ export class AuthenticationService {
    * @returns Username or empty string.
    */
   public getUsernameFromToken(): string {
-      const token = localStorage.getItem('token');
-      if (token != null) {
-          const decodedToken = this._jwtHelper.decodeToken(token);
-          const username = decodedToken['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name'];
-          return username;
-      }
-      return "";
+    const token = localStorage.getItem('token');
+    if (token != null) {
+      const decodedToken = this._jwtHelper.decodeToken(token);
+      const username = decodedToken['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name'];
+      return username;
+    }
+    return "";
   }
 
+  // /**
+  //  * Refresh access token.
+  //  * @returns Token response.
+  //  */
+  // public refreshToken() {
+  //     let request = {} as RefreshTokenRequestModel;
+  //     let refreshToken = localStorage.getItem('refreshToken');
+  //     if (refreshToken != 'undefined' && refreshToken != null) {
+  //         request.refreshToken = refreshToken;
+  //         return this._http.post<TokenResponseModel>(`${environment.apiUrl}/User/RefreshToken`, request, { withCredentials: true })
+  //             .pipe(
+  //                 map(response => {
+  //                     localStorage.setItem("token", response.token);
+  //                     localStorage.setItem("refreshToken", response.refreshToken);
+  //                     this.sendAuthStateChangeNotification(response.isSuccess);
+  //                     this.startRefreshTokenTimer();
+  //                     return response;
+  //                 })
+  //             );
+  //     }
+  //     console.log("Error no refresh token found.");
+  //     localStorage.removeItem('token');
+  //     localStorage.removeItem('refreshToken');
+  //     this._router.navigate(['/user/login']);
+  //     return of({});
+  // }
+
   /**
-   * Refresh access token.
-   * @returns Token response.
-   */
-  public refreshToken() {
-      let request = {} as RefreshTokenRequestModel;
-      let refreshToken = localStorage.getItem('refreshToken');
+ * Refresh access token.
+ * @returns Token response.
+ */
+  public refreshToken(): Promise<TokenResponseModel> {
+    let request = {} as RefreshTokenRequestModel;
+    let refreshToken = localStorage.getItem('refreshToken');
+    return new Promise<TokenResponseModel>((resolve, reject) => {
       if (refreshToken != 'undefined' && refreshToken != null) {
-          request.refreshToken = refreshToken;
-          return this._http.post<TokenResponseModel>(`${environment.apiUrl}/User/RefreshToken`, request, { withCredentials: true })
-              .pipe(
-                  map(response => {
-                      localStorage.setItem("token", response.token);
-                      localStorage.setItem("refreshToken", response.refreshToken);
-                      this.sendAuthStateChangeNotification(response.isSuccess);
-                      this.startRefreshTokenTimer();
-                      return response;
-                  })
-              );
+        request.refreshToken = refreshToken;
+        lastValueFrom(this._http.post<TokenResponseModel>(`${environment.apiUrl}/User/RefreshToken`, request, { withCredentials: true })).then(response => {
+          localStorage.setItem("token", response.token);
+          localStorage.setItem("refreshToken", response.refreshToken);
+          this.sendAuthStateChangeNotification(response.isSuccess);
+          this.startRefreshTokenTimer();
+          resolve(response);
+        });
       }
       console.log("Error no refresh token found.");
       localStorage.removeItem('token');
       localStorage.removeItem('refreshToken');
       this._router.navigate(['/user/login']);
-      return of({});
+      resolve({} as TokenResponseModel);
+    });
   }
 
   /**
    * Starting timer, when access token needs refresh.
    */
   public startRefreshTokenTimer() {
-      const token = localStorage.getItem('token');
-      if (token != null) {
-          const decodedToken = this._jwtHelper.decodeToken(token);
-          const expires = new Date(decodedToken.exp * 1000);
-          const timeout = expires.getTime() - Date.now() - (60 * 1000);
-          this.refreshtokenTimeout = setTimeout(() => this.refreshToken().subscribe(), timeout);
-      }
+    const token = localStorage.getItem('token');
+    if (token != null) {
+      const decodedToken = this._jwtHelper.decodeToken(token);
+      const expires = new Date(decodedToken.exp * 1000);
+      const timeout = expires.getTime() - Date.now() - (60 * 1000);
+      this.refreshtokenTimeout = setTimeout(() => this.refreshToken().then(), timeout);
+    }
   }
 
   /**
    * Stop refresh token timer.
    */
   private stopRefreshTokenTimer() {
-      clearTimeout(this.refreshtokenTimeout);
+    clearTimeout(this.refreshtokenTimeout);
   }
 }
 

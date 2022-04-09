@@ -25,7 +25,7 @@ export class ErrorHandlerService implements HttpInterceptor {
                               this._snackBar.open(this.translate.instant('MESSAGE.18'), 'Ok', { duration: 3000, panelClass: ["success-snackbar"], verticalPosition: 'top', horizontalPosition: 'end' });
                           }
                           else {
-                              evt.body.errors.forEach(error => {
+                              evt.body.errors.forEach((error: { errorCode: string | number; }) => {
                                   if (error.errorCode <= 2000) {
                                       this._snackBar.open(this.translate.instant('MESSAGE.ERROR.' + error.errorCode), 'Error', { duration: 3000, panelClass: ["error-snackbar"], verticalPosition: 'top', horizontalPosition: 'end' });
                                   }
@@ -74,7 +74,7 @@ export class ErrorHandlerService implements HttpInterceptor {
 
   private handleUnauthorized = (response: HttpErrorResponse) => {
       let snackbarContent = "";
-      response.error.errors.forEach(error => {
+      response.error.errors.forEach((error: { errorCode: string; }) => {
           snackbarContent = snackbarContent + `${error.errorCode} =>\n ${this.translate.instant('MESSAGE.ERROR.' + error.errorCode)} \n`;
           this._snackBar.open(snackbarContent, 'Error', { duration: 3000, panelClass: ["error-snackbar"], verticalPosition: 'top', horizontalPosition: 'end' });
       });
@@ -96,7 +96,7 @@ export class ErrorHandlerService implements HttpInterceptor {
 
   private handleBadRequest = (response: HttpErrorResponse): string => {
       let snackbarContent = "";
-      response.error.errors.forEach(error => {
+      response.error.errors.forEach((error: { errorCode: string; }) => {
           snackbarContent = snackbarContent + `${error.errorCode} => ${this.translate.instant('MESSAGE.ERROR.' + error.errorCode)} \n`;
           this._snackBar.open(snackbarContent, 'Error', { duration: 3000, panelClass: ["error-snackbar"], verticalPosition: 'top', horizontalPosition: 'end' });
       });

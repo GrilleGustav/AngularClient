@@ -16,6 +16,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';import { JwtInt
 import { appinitializer } from './_helper/app.initializer';
 import { AuthenticationService } from './_services/authentication.service';
 import { ErrorHandlerService } from './_services/error-handler.service';
+import { AuthenticationModule } from './modules/authentication/authentication.module';
 ;
 
 
@@ -47,7 +48,8 @@ import { ErrorHandlerService } from './_services/error-handler.service';
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })   
+    }),
+    AuthenticationModule
   ],
   providers: [
     {
@@ -64,7 +66,7 @@ import { ErrorHandlerService } from './_services/error-handler.service';
       provide: APP_INITIALIZER,
       useFactory: appinitializer,
       multi: true,
-      deps: [AuthenticationService]
+      deps: [AuthenticationService, HttpClient]
     },
   ],
   bootstrap: [AppComponent]

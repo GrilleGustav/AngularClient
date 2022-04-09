@@ -31,13 +31,13 @@ export class AuthGuard implements CanActivate {
         if (this._authService.isUserAuthenticated()) {
            let roles = this._authService.getRolesfromUser();
             if (typeof roles === 'string') {
-                if (route.data[roles] && route.data[roles].some(x => x === roles)) {
+                if (route.data[roles] && route.data[roles].some((x: string) => x === roles)) {
                     this.authorized  = true;
                 }
             }
             else {
                 roles.forEach((role: string) => {
-                    if (route.data[roles] && route.data[roles].some(x => x === role)) {
+                    if (route.data[roles] && route.data[roles].some((x: string) => x === role)) {
                         this.authorized = true;
                     }
                 });
