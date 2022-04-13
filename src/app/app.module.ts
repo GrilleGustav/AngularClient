@@ -17,6 +17,7 @@ import { appinitializer } from './_helper/app.initializer';
 import { AuthenticationService } from './_services/authentication.service';
 import { ErrorHandlerService } from './_services/error-handler.service';
 import { AuthenticationModule } from './modules/authentication/authentication.module';
+import { BaseModule } from './modules/base/base.module';
 ;
 
 
@@ -49,7 +50,8 @@ import { AuthenticationModule } from './modules/authentication/authentication.mo
         deps: [HttpClient]
       }
     }),
-    AuthenticationModule
+    AuthenticationModule,
+    BaseModule
   ],
   providers: [
     {

@@ -46,7 +46,7 @@
 
 .dark-theme {
   @include angular-material-theme($darkTheme);
-  background-color: black !important;
+  
 }
 
 .light-theme {
@@ -60,6 +60,9 @@
 .dark-red-theme {
   @include angular-material-theme($darkRedTheme);
 }
+
+$flag-icon-css-path: '~flag-icon-css/flags' !default;
+@import "~flag-icon-css/sass/flag-icons";
 
 
 html, body { height: 100%; }

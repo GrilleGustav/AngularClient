@@ -8,11 +8,25 @@ import { Language } from "src/app/_enums/language";
 
 export const environment = {
   production: false,
+
+  /**
+   * Url to api.
+   */
   apiUrl: 'http://localhost:5000',
+
+  /**
+   * Client origin.
+   */
+  clientUrl: window.location.origin,
+
+  /**
+   * Supported application language.
+   */
   supportedLanguage: [
     { code: Language.Germany, name: "Germany", iconCode: "de"},
     { code: Language.Englisch, name: "English", iconCode: "gb"}
   ],
+
   emailTemplatePlaceholder: [
     { type: EmailTemplateType.Register, props: ['Firstname', 'Lastname', 'UserName', 'RegisterConfirm', 'Date'] },
     { type: EmailTemplateType.PasswortReset, props: ['Date'] }

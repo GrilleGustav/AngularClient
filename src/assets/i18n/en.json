@@ -1,0 +1,16 @@
+{
+    "TOPMENU": {
+        "ADMIN": "Admin",
+        "USER": "User",
+        "SETTINGS": "Settings",
+        "EMAILSERVER": "Email Server",
+        "EMAILTEMPLATES": "Email Templates",
+        "LOGIN": "Login",
+        "LOGOUT": "Logout",
+        "RESETPASSWORD": "Reset Password",
+        "MESSAGES": "Messages"
+    },
+    "HEADING": {
+        "LOGINPAGE": "Login"
+    }
+}

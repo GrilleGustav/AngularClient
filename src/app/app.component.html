@@ -1,7 +1,9 @@
-<div [ngClass]="{'dark-theme': theme  === 'dark-theme', 'light-theme': theme === 'light-theme', 'light-red-theme': theme === 'light-red-theme', 'dark-red-theme':theme === 'dark-red-theme'} " style="height: 100%">
+<div
+  [ngClass]="{'dark-theme': theme  === 'dark-theme', 'light-theme': theme === 'light-theme', 'light-red-theme': theme === 'light-red-theme', 'dark-red-theme':theme === 'dark-red-theme'} "
+  style="height: 100%">
   <div class="mat-app-background" style="height: 100%;">
     <app-top-menu></app-top-menu>
-    <div class="content" style="height: 100%;">
+    <div style="width: 100%; height: 100%;">
       <router-outlet></router-outlet>
     </div>
   </div>

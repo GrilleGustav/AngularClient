@@ -1,11 +1,45 @@
 <mat-toolbar class="mat-elevation-z4" color="primary">
     <span>ClientApp&nbsp;</span>
     <span class="spacer"></span>
-    <button mat-button [matMenuTriggerFor]="menu"><mat-icon>palette</mat-icon></button>
+    <!-- Login -->
+    <button mat-button routerLink="user/login" *ngIf="!isUserAuthenticated">
+        <mat-icon>login</mat-icon>
+        <span>&nbsp;{{'TOPMENU.LOGIN' | translate}}</span>
+    </button>
+    <!-- Account -->
+    <button mat-button [matMenuTriggerFor]="account" *ngIf="isUserAuthenticated">
+        <mat-icon>account_box</mat-icon>
+        <span>&nbsp;{{username}}</span>
+    </button>
+    <mat-menu #account="matMenu">
+        <button mat-menu-item *ngIf="isUserAuthenticated" (click)="logout()">
+            <mat-icon>logout</mat-icon>
+            <span>&nbsp;{{'TOPMENU.LOGOUT' | translate}}</span>
+        </button>
+        <button mat-menu-item *ngIf="isUserAuthenticated" routerLink="user/resetPassword" routerLinkActive="active">
+            <mat-icon>restart_alt</mat-icon>
+            <span>&nbsp;{{'TOPMENU.RESETPASSWORD' | translate}}</span>
+        </button>
+    </mat-menu>
+    <!-- Select theme -->
+    <button mat-button [matMenuTriggerFor]="menu">
+        <mat-icon>palette</mat-icon>
+    </button>
     <mat-menu #menu="matMenu">
-        <button mat-menu-item (click)="toggleDarkTheme('dark-theme')">Dark</button>
-        <button mat-menu-item (click)="toggleDarkTheme('light-theme')">Light</button>
-        <button mat-menu-item (click)="toggleDarkTheme('light-red-theme')">Light-Red</button>
-        <button mat-menu-item (click)="toggleDarkTheme('dark-red-theme')">Dark-Red</button>
+        <button mat-menu-item (click)="toggleTheme('dark-theme')">Dark</button>
+        <button mat-menu-item (click)="toggleTheme('light-theme')">Light</button>
+        <button mat-menu-item (click)="toggleTheme('light-red-theme')">Light-Red</button>
+        <button mat-menu-item (click)="toggleTheme('dark-red-theme')">Dark-Red</button>
+    </mat-menu>
+    <!-- Select language -->
+    <button mat-button [matMenuTriggerFor]="languageSelect">
+        <span class="flag-icon flag-icon-{{selectedLanguageIcon}}"></span>
+    </button>
+    <mat-menu #languageSelect="matMenu">
+        <button mat-menu-item (click)="onChangeLanguage(language.code, language.iconCode)"
+            *ngFor="let language of supportedLanguage">
+            <span class="flag-icon flag-icon-{{language.iconCode}}"
+                style="margin-right: 5px;"></span><span>{{language.name}}</span>
+        </button>
     </mat-menu>
 </mat-toolbar>

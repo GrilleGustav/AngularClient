@@ -1,0 +1,16 @@
+{
+    "TOPMENU": {
+        "ADMIN": "Admin",
+        "USER": "User",
+        "SETTINGS": "Einstellungen",
+        "EMAILSERVER": "Email Server",
+        "EMAILTEMPLATES": "Email Vorlagen",
+        "LOGIN": "Anmelden",
+        "LOGOUT": "Abmelden",
+        "RESETPASSWORD": "Passwort zurücksetzen",
+        "MESSAGES": "Nachrichten"
+    },
+    "HEADING": {
+        "LOGINPAGE": "Login"
+    }
+}

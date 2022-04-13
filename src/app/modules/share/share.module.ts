@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EditorComponent } from './editor/editor.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -9,7 +11,10 @@ import { EditorComponent } from './editor/editor.component';
     EditorComponent
   ],
   imports: [
-    CommonModule
-  ]
+    CommonModule,
+    CKEditorModule,
+    FormsModule
+  ],
+  exports: [EditorComponent]
 })
 export class ShareModule { }
