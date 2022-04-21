@@ -29,6 +29,9 @@ export class LoginComponent implements OnInit {
  */
   constructor(private _authService: AuthenticationService, private _router: Router, private _route: ActivatedRoute, private _snackBar: MatSnackBar, public translate: TranslateService) { }
 
+  /**
+   * A lifecycle hook that is called after Angular has initialized all data-bound properties of a directive.
+   */
   ngOnInit(): void { 
     this._returnUrl = this._route.snapshot.queryParams['returnUrl'] || 'home';
   }

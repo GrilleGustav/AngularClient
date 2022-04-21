@@ -14,10 +14,21 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { RegisterUserComponent } from './register-user/register-user.component';
+import { MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MustMatch } from 'src/app/_validators/must-match.validator';
 
 @NgModule({
   declarations: [
-    LoginComponent
+    LoginComponent,
+    ResetPasswordComponent,
+    ForgotPasswordComponent,
+    RegisterUserComponent,
+    MustMatch
   ],
   imports: [
     CommonModule,
@@ -33,7 +44,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatIconModule,
     MatSnackBarModule,
     MatSlideToggleModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatDialogModule
   ]
 })
 export class AuthenticationModule { }

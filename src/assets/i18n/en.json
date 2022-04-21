@@ -1,8 +1,81 @@
 {
+    "LABEL": {
+        "EMAIL": "Email",
+        "PASSWORD": "Password",
+        "OLDPASSWORD": "Old Password",
+        "STAYLOGGEDIN": "Stay logged in",
+        "FIRSTNAME": "Firstname",
+        "LASTNAME": "Lastname",
+        "CONFIRMPASSWORD": "Confirm Password",
+        "OLDCONFIRMPASSWORD": "Confirm old Password",
+        "OLD": "old",
+        "CODE": "Code",
+        "FILTER": "Filter",
+        "SERVERIP": "Server Ip",
+        "SERVERPORT": "Server Port",
+        "DESCRIPTION": "Description",
+        "DEFAULT": "Default",
+        "SENDER": "Sender",
+        "NEWSENDER": "New sender",
+        "SERVERUSERNAME": "Server authentication username",
+        "SERVERPASSWORD": "Server authentication password",
+        "NAME": "Name",
+        "TYPE": "Type",
+        "LANGUAGE": "Language",
+        "YES": "Yes",
+        "NO": "No",
+        "USERNAME": "Username",
+        "CREATEDON": "Created on",
+        "LASTACCESSEDON": "Last login",
+        "PHONENUMBER": "Phonenumber",
+        "EMAILCONFIRMED": "Email confirmed",
+        "PHONENUMBERCONFIRMED": "Phonenumber confirmed",
+        "TWOFACTORENABLED": "Two factor enabled",
+        "LOCKOUTENABLED": "Lockout enabled",
+        "SENDON": "Send on",
+        "RECEIVER": "Receiver",
+        "FROM": "From",
+        "SUBJECT": "Subject",
+        "ISSEND": "Send",
+        "ADDGROUP": "Add Group",
+        "PLACEHOLDER": "Placeholder",
+        "PREDEFINED": "Predefined"
+    },
+    "BUTTON": {
+        "FORGOTPASSWORD": "Forgot Password",
+        "EXTERNALLOGIN": "Google",
+        "REGISTER": "Register",
+        "CANCEL": "Cancel",
+        "RESET": "Reset",
+        "LOGIN": "Login",
+        "RESEND": "Resend",
+        "HOME": "Home",
+        "CLOSE": "Close",
+        "SAVE": "Save",
+        "SEND": "Send",
+        "EDIT": "Edit",
+        "REMOVE": "Remove",
+        "NEXT": "Next",
+        "ADD": "Add",
+        "EDITGROUPS": "Edit groups",
+        "OVERRIDE": "Override",
+        "EDITUSERCLAIMS": "User claims edit"
+    },
+    "FORM": {
+        "ERROR": {
+            "REQUIRED": "Is required.",
+            "EMAIL": "No valid email.",
+            "EXIST": "Already Exist.",
+            "PASSWORDPATTERN": "Passwords must contain uppercase letters, lowercase letters, numbers, and special characters.",
+            "MUSTMATCH": "Password and confirmationpassword are not same."
+        },
+        "CONCURRENCY": {
+            "PASSWORD": "Maybe pasword has changed."
+        }
+    },
     "TOPMENU": {
         "ADMIN": "Admin",
         "USER": "User",
-        "SETTINGS": "Settings",
         "EMAILSERVER": "Email Server",
         "EMAILTEMPLATES": "Email Templates",
         "LOGIN": "Login",
@@ -10,7 +83,12 @@
         "RESETPASSWORD": "Reset Password",
         "MESSAGES": "Messages"
     },
+    "MENU": {
+        "SETTINGS": "Settings"
+    },
     "HEADING": {
-        "LOGINPAGE": "Login"
+        "LOGINPAGE": "Login",
+        "RESETPASSWORDPAGE": "Reset password",
+        "REGISTERUSERPAGE": "Register"
     }
 }

@@ -40,7 +40,7 @@ export class TopMenuComponent implements OnInit {
     this._authService.authChanged.subscribe(result => {
       this.isUserAuthenticated = result;
       this.username = this._authService.getUsernameFromToken();
-      this.isUserAuthenticated = this._authService.isUserAdmin();
+      this.isAdmin = this._authService.isUserAdmin();
     });
   }
 
@@ -66,6 +66,7 @@ export class TopMenuComponent implements OnInit {
   public logout() {
     this._authService.logout();
     this.username = "";
+    this.isAdmin = false;
     this._router.navigate(["/"]);
   }
 

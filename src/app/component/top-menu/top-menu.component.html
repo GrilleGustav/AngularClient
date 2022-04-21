@@ -1,5 +1,54 @@
 <mat-toolbar class="mat-elevation-z4" color="primary">
     <span>ClientApp&nbsp;</span>
+    <!-- Settings menu -->
+    <button mat-button [matMenuTriggerFor]="backendSettings" aria-label="Backend settings menu." *ngIf="isAdmin">
+        <mat-icon>settings</mat-icon>
+        <span>&nbsp;{{'MENU.SETTINGS' | translate}}</span>
+    </button>
+    <mat-menu #backendSettings="matMenu">
+        <button mat-menu-item [matMenuTriggerFor]="email">
+            <mat-icon>email</mat-icon>
+            <span>Email</span>
+        </button>
+        <mat-menu #email="matMenu">
+            <button mat-menu-item routerLink="settings/email/server" routerLinkActive="active">
+                <mat-icon>email</mat-icon>
+                <span>{{'TOPMENU.EMAILSERVER' | translate}}</span>
+            </button>
+            <button mat-menu-item routerLink="settings/email/template" routerLinkActive="active">
+                <mat-icon>list</mat-icon>
+                <span>{{'TOPMENU.EMAILTEMPLATES' | translate}}</span>
+            </button>
+            <button mat-menu-item routerLink="settings/email/messages" routerLinkActive="active">
+                <mat-icon>message</mat-icon>
+                <span>{{'TOPMENU.MESSAGES' | translate}}</span>
+            </button>
+        </mat-menu>
+    </mat-menu>
+    <button mat-menu-item [matMenuTriggerFor]="user">
+        <mat-icon>people_alt</mat-icon>
+        <span>{{'TOPMENU.USER' | translate}}</span>
+    </button>
+    <!-- User -->
+    <mat-menu #user="matMenu">
+        <button mat-menu-item routerLink="settings/user" routerLinkActive="active">
+            <mat-icon>people</mat-icon>
+            <span>{{'TOPMENU.USER' | translate}}</span>
+        </button>
+        <button mat-menu-item routerLink="settings/group">
+            <mat-icon>group_add</mat-icon>
+            <span>Rechte</span>
+        </button>
+        <button mat-menu-item routerLink="user/emailConfirmation" routerLinkActive="active">
+            <mat-icon>email</mat-icon>
+            <span>&nbsp;Email Confirm</span>
+        </button>
+        <button mat-menu-item routerLink="user/twoStep" routerLinkActive="active">
+            <mat-icon>looks_two</mat-icon>
+            <span>&nbsp;Two Step Varification</span>
+        </button>
+    </mat-menu>
+
     <span class="spacer"></span>
     <!-- Login -->
     <button mat-button routerLink="user/login" *ngIf="!isUserAuthenticated">

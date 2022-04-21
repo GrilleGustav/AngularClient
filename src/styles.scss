@@ -44,9 +44,9 @@
 @import './themes/light-red-theme.scss';
 @import './themes/dark-red-theme.scss';
 
+@include angular-material-theme($darkTheme);
 .dark-theme {
   @include angular-material-theme($darkTheme);
-  
 }
 
 .light-theme {

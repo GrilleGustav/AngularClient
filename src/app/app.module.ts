@@ -18,8 +18,6 @@ import { AuthenticationService } from './_services/authentication.service';
 import { ErrorHandlerService } from './_services/error-handler.service';
 import { AuthenticationModule } from './modules/authentication/authentication.module';
 import { BaseModule } from './modules/base/base.module';
-;
-
 
 @NgModule({
   declarations: [

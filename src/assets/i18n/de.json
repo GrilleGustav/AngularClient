@@ -1,8 +1,81 @@
 {
+    "LABEL": {
+        "EMAIL": "Email",
+        "PASSWORD": "Passwort",
+        "OLDPASSWORD": "Altes Passwort",
+        "STAYLOGGEDIN": "Eingelogt bleiben",
+        "FIRSTNAME": "Vorname",
+        "LASTNAME": "Nachname",
+        "CONFIRMPASSWORD": "Passwort Bestätigung",
+        "OLDCONFIRMPASSWORD": "Altes Passwort Bestätigen",
+        "OLD": "altes",
+        "CODE": "Code",
+        "FILTER": "Filter",
+        "SERVERIP": "Server Ip",
+        "SERVERPORT": "Server Port",
+        "DISCRIPTION": "Beschreibung",
+        "DEFAULT": "Standard",
+        "SENDER": "Absender",
+        "NEWSENDER": "Neuer Absender",
+        "SERVERUSERNAME": "Server Authentifizierungs Benutzername",
+        "SERVERPASSWORD": "Server Authentifizierungs Passwort",
+        "NAME": "Name",
+        "TYPE": "Typ",
+        "LANGUAGE": "Sprache",
+        "YES": "JA",
+        "NO": "Nein",
+        "USERNAME": "Benutzername",
+        "CREATEDON": "Erstellt am",
+        "LASTACCESSEDON": "Letzte Anmeldung",
+        "PHONENUMBER": "Telefonnummer",
+        "EMAILCONFIRMED": "Email bestätigt",
+        "PHONENUMBERCONFIRMED": "Telefonnummer bestätigt",
+        "TWOFACTORENABLED": "Zwei faktor aktiviert",
+        "LOCKOUTENABLED": "Ausloggen aktiviert",
+        "SENDON": "Gesendet am",
+        "RECEIVER": "Empfänger",
+        "FROM": "Absender",
+        "SUBJECT": "Betreff",
+        "ISSEND": "Gesendet",
+        "ADDGROUP": "Group hinzufügen",
+        "PLACEHOLDER": "Platzhalter",
+        "PREDEFINED": "Vordefiniert"
+    },
+    "BUTTON": {
+        "FORGOTPASSWORD": "Passwort vergessen",
+        "EXTERNALLOGIN": "Google",
+        "REGISTER": "Registrierung",
+        "CANCEL": "Abbrechen",
+        "RESET": "Zurücksetzen",
+        "LOGIN": "Login",
+        "RESEND": "Erneut senden",
+        "HOME": "Home",
+        "CLOSE": "Schließen",
+        "SAVE": "Speichern",
+        "SEND": "Absenden",
+        "EDIT": "Ändern",
+        "REMOVE": "Löschen",
+        "NEXT": "Weiter",
+        "ADD": "Hinzufügen",
+        "EDITGROUPS": "Gruppen bearbeiten",
+        "OVERRIDE": "Überschreiben",
+        "EDITUSERCLAIMS": "Benutzerrechte bearbeiten"
+    },
+    "FORM": {
+        "ERROR": {
+            "REQUIRED": "Muss ausgefüllt werden.",
+            "EMAIL": "Keine gültige Email.",
+            "EXIST": "Existiert bereits.",
+            "PASSWORDPATTERN": "Passwörter müssen große, kleine Buchstaben, Zahlen und Sonderzeichen enthalten.",
+            "MUSTMATCH": "Password und Password bestätigung müssen übereinstimmen."
+        },
+        "CONCURRENCY": {
+            "PASSWORD": "Vieleicht wurde das Passwort geändert."
+        }
+    },
     "TOPMENU": {
         "ADMIN": "Admin",
         "USER": "User",
-        "SETTINGS": "Einstellungen",
         "EMAILSERVER": "Email Server",
         "EMAILTEMPLATES": "Email Vorlagen",
         "LOGIN": "Anmelden",
@@ -10,7 +83,12 @@
         "RESETPASSWORD": "Passwort zurücksetzen",
         "MESSAGES": "Nachrichten"
     },
+    "MENU": {
+        "SETTINGS": "Einstellungen"
+    },
     "HEADING": {
-        "LOGINPAGE": "Login"
+        "LOGINPAGE": "Login",
+        "RESETPASSWORDPAGE": "Password zurücksetzen",
+        "REGISTERUSERPAGE": "Registrierung"
     }
 }

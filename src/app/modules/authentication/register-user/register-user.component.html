@@ -1,0 +1,77 @@
+<div fxGap="16px" fxLayout="column" fxLayoutAlign="center center" style="padding: 20px;">
+    <form #registerForm="ngForm" class="mat-elevation-z4" (ngSubmit)="onSubmit(registerForm.value)" fxGap="16px"
+        fxLayout="column" fxLayoutAlign="center center">
+        <h1>{{'HEADING.REGISTERUSERPAGE' | translate}}</h1>
+        <mat-form-field appearance="outline" fxFill>
+            <mat-label>{{'LABEL.FIRSTNAME' | translate}}</mat-label>
+            <input type="text" matInput placeholder="Firstname" name="firstname" [ngModel]="model.firstname"
+                #firstname="ngModel" />
+        </mat-form-field>
+        <mat-form-field appearance="outline" fxFill>
+            <mat-label>{{'LABEL.LASTNAME' | translate}}</mat-label>
+            <input type="text" matInput placeholder="Lastname" name="lastname" [ngModel]="model.lastname"
+                #lastname="ngModel" />
+        </mat-form-field>
+        <mat-form-field appearance="outline" fxFill>
+            <mat-label>{{'LABEL.LANGUAGE' | translate}}</mat-label>
+            <mat-select name="language" #language="ngModel" [(ngModel)]="model.language"  [ngModelOptions]="{updateOn: 'blur'}">
+                <mat-select-trigger>
+                    <span class="flag-icon flag-icon-{{findIconCode(model.language)}}" style="margin-right: 5px;"></span>
+                    {{findName(model.language)}}
+                </mat-select-trigger>
+                <mat-option>none</mat-option>
+                <mat-option *ngFor="let language of supportedLanguage" [value]="language"><span
+                        class="flag-icon flag-icon-{{language.iconCode}}"
+                        style="margin-right: 5px;"></span>{{language.name}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline" fxFill>
+            <mat-label>{{'LABEL.EMAIL' | translate}}</mat-label>
+            <input type="text" matInput placeholder="Email" name="email" id="email" [ngModel]="model.email"
+                #email="ngModel" required email emailExist [ngModelOptions]="{updateOn: 'blur'}" />
+            <mat-error *ngIf="email.touched && email.errors?.['required']">{{'FORM.ERROR.REQUIRED' | translate}}
+            </mat-error>
+            <mat-error *ngIf="email.touched && email.errors?.['email']">{{'FORM.ERROR.EMAIL' | translate}}</mat-error>
+            <mat-error *ngIf="email.touched && email.errors?.['emailExist']">{{'FORM.ERROR.EXIST' | translate}}
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" fxFill>
+            <mat-label>{{'LABEL.PASSWORD' | translate}}</mat-label>
+            <input type="password" matInput placeholder="Password" name="password" [ngModel]="model.password" #password="ngModel" required
+                pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}" />
+            <mat-error *ngIf="password.touched && password.errors?.['required']">{{'FORM.ERROR.REQUIRED' | translate}}
+            </mat-error>
+            <mat-error *ngIf="password.touched && password.errors?.['pattern']">{{'FORM.ERROR.PASSWORDPATTERN' |
+                translate}}
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" fxFill>
+            <mat-label>{{'LABEL.CONFIRMPASSWORD' | translate}}</mat-label>
+            <input type="password" matInput placeholder="Password" name="confirmPassword" [ngModel]="model.confirmPassword" #confirmPassword="ngModel" mustMatch="password" required pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}" />
+            <mat-error *ngIf="confirmPassword.touched && confirmPassword.errors?.['mustMatch']">{{'FORM.ERROR.MUSTMATCH'
+                |
+                translate}}</mat-error>
+            <mat-error *ngIf="confirmPassword.touched && confirmPassword.errors?.['required']">{{'FORM.ERROR.REQUIRED' |
+                translate}}</mat-error>
+            <mat-error *ngIf="confirmPassword.touched && confirmPassword.errors?.['pattern']">
+                {{'FORM.ERROR.PASSWORDPATTERN'
+                | translate}}</mat-error>
+        </mat-form-field>
+        <input hidden type="text" matInput name="clientURI" [ngModel]="model?.clientURI" required>
+        <div fxFlex="25" fxFlex.md="33" fxFlex.sm="50" fxFlex.xs="100" fxLayout.xs="column" fxLayout.sm="column"
+            fxLayout.md="column" fxLayout="row">
+            <button type="submit" fxFlex="grow" fxFlexOffset="16px" mat-button [disabled]="!registerForm.valid">
+                <mat-icon>save</mat-icon>
+                <span>&nbsp;{{'BUTTON.REGISTER' | translate}}</span>
+            </button>
+            <button type="button" fxFlex="grow" routerLink="../login" fxFlexOffset="16px" mat-button>
+                <mat-icon>close</mat-icon>
+                <span>&nbsp;{{'BUTTON.CANCEL' | translate}}</span>
+            </button>
+            <button type="reset" fxFlex="grow" fxFlexOffset="16px" mat-button>
+                <mat-icon>clear_all</mat-icon>
+                <span>&nbsp;{{'BUTTON.RESET' | translate}}</span>
+            </button>
+        </div>
+    </form>
+</div>
